@@ -17,6 +17,11 @@ public class Juego {
         inicializarTablero();
     }
     private void inicializarTablero(){
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                tablero[i][j] = " ";
+            }
+        }
         inicializarBlancas();
         inicializarNegras();
     }
@@ -65,7 +70,18 @@ public class Juego {
     
     @Override
     public String toString() {
-        return "";
+        String mensaje = "";
+        for (String[] strings : tablero) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                if (strings[j].equals(" ")) {
+                    mensaje += "[  ]";
+                } else {
+                    mensaje += " " + strings[j] + " ";
+                }
+            }
+            mensaje += "\n";
+        }
+        return mensaje;
     }
 
     
